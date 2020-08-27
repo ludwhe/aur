@@ -1,0 +1,3 @@
+[submodule "libfprint-vfs_proprietary-git"]
+	path = libfprint-vfs_proprietary-git
+	url = https://aur.archlinux.org/libfprint-vfs_proprietary-git.git
