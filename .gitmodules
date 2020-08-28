@@ -1,3 +1,6 @@
 [submodule "libfprint-vfs_proprietary-git"]
 	path = libfprint-vfs_proprietary-git
 	url = https://aur.archlinux.org/libfprint-vfs_proprietary-git.git
+[submodule "vfs495-daemon"]
+	path = vfs495-daemon
+	url = ssh://aur@aur.archlinux.org/vfs495-daemon.git
