@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    strategy:
+      matrix:
+        workdir:
+          - libfprint-vfs_proprietary-git
+          - libva-intel-driver-hybrid-g45-h265
+          - vfs495-daemon
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm base-devel
+          git submodule update ${{ matrix.workdir }}
+      - name: Build package
+        run: makepkg -si
+        working-directory: ${{ matrix.workdir }}
